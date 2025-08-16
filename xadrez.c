@@ -17,5 +17,19 @@ t = 0; do {
       t++; } 
 while (t < 5);
 
+    int casasBaixo = 2;
+    int casasEsquerda = 1; 
+    
+    for (int i = 0; i < casasBaixo; i++) {
+        printf("Baixo\n");
+    }
+
+
+    t = 0;
+    while (t < casasEsquerda) {
+        printf("Esquerda\n");
+        t++;
+    }
+
     return 0;
 }
