@@ -1,35 +1,73 @@
 #include <stdio.h>
 
+
+void moverTorre(int casas) {
+    if (casas <= 0) return; 
+    printf("Baixo\n");
+    moverTorre(casas - 1); 
+}
+
+
+void moverBispoRecursivo(int casas) {
+    if (casas <= 0) return; 
+    printf("Cima direita\n");
+    moverBispoRecursivo(casas - 1);
+}
+
+
+void moverRainha(int casas) {
+    if (casas <= 0) return;
+    printf("Direita\n");
+    moverRainha(casas - 1);
+}
+
+
+void moverBispoLoops(int casas) {
+    for (int i = 0; i < casas; i++) {
+        for (int j = 0; j < casas; j++) {
+            printf("Cima direita\n");
+        }
+    }
+}
+
+
+void moverCavalo(int movimentos) {
+    for (int i = 0; i < movimentos; i++) {
+        for (int j = 0; j < movimentos; j++) {
+            if (i == 2 && j == 1) { 
+                printf("Cima\n");
+                printf("Cima\n");
+                printf("Direita\n");
+                break; // sai após formar o L
+            }
+            else {
+                continue; 
+            }
+        }
+    }
+}
+
+
 int main() {
-    int t = 0;
+    int casasTorre = 3;
+    int casasBispo = 3;
+    int casasRainha = 4;
+    int movimentosCavalo = 3;
 
-for (int t = 0; t < 5; t++) {
-    printf ("Direita\n");
-}
-      
-t = 0; while (t < 5) {
-      printf ("Cima direita\n");
-      t++;
-}
+    printf("=== Torre ===\n");
+    moverTorre(casasTorre);
 
-t = 0; do {
-      printf("Esquerda\n");
-      t++; } 
-while (t < 5);
+    printf("\n=== Bispo (recursivo) ===\n");
+    moverBispoRecursivo(casasBispo);
 
-    int casasBaixo = 2;
-    int casasEsquerda = 1; 
-    
-    for (int i = 0; i < casasBaixo; i++) {
-        printf("Baixo\n");
-    }
+    printf("\n=== Bispo (loops aninhados) ===\n");
+    moverBispoLoops(casasBispo);
 
+    printf("\n=== Rainha ===\n");
+    moverRainha(casasRainha);
 
-    t = 0;
-    while (t < casasEsquerda) {
-        printf("Esquerda\n");
-        t++;
-    }
+    printf("\n=== Cavalo ===\n");
+    moverCavalo(movimentosCavalo);
 
     return 0;
 }
